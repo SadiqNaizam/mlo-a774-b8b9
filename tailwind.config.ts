@@ -1,3 +1,4 @@
+```typescript
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
@@ -28,8 +29,6 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				'primary-text': '#1F2937',
-				'secondary-text': '#6B7280',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -94,3 +93,4 @@ export default {
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+```
