@@ -1,9 +1,11 @@
+```typescript
 import React from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import { Button } from '@/components/ui/button';
 import { Calendar, ChevronDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface TrackingData {
   month: string;
@@ -23,7 +25,7 @@ const leadsTrackingData: TrackingData[] = [
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="p-2 bg-white border rounded-md shadow-lg text-sm">
+      <div className="p-2 bg-popover text-popover-foreground border rounded-md shadow-lg text-sm">
         <p className="label font-bold">{`${label}`}</p>
         <p className="text-teal-600">{`Closed won: ${payload[0].value}`}</p>
         <p className="text-red-500">{`Closed lost: ${payload[1].value}`}</p>
@@ -41,19 +43,19 @@ const LeadsTrackingSection: React.FC = () => {
           <div>
             <h2 className="text-xl font-semibold">Leads tracking</h2>
             <div className="mt-2 flex items-baseline gap-6">
-              <p><span className="text-4xl font-bold">680</span> <span className="text-secondary-text">total closed</span></p>
-              <p><span className="text-4xl font-bold">70</span> <span className="text-secondary-text">total lost</span></p>
+              <p><span className="text-4xl font-bold">680</span> <span className="text-muted-foreground">total closed</span></p>
+              <p><span className="text-4xl font-bold">70</span> <span className="text-muted-foreground">total lost</span></p>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <Tabs defaultValue="leads-converted">
-              <TabsList className="bg-gray-200">
+              <TabsList className="bg-muted">
                 <TabsTrigger value="leads-came">Leads came</TabsTrigger>
                 <TabsTrigger value="leads-converted">Leads Converted</TabsTrigger>
                 <TabsTrigger value="total-deals">Total deals size</TabsTrigger>
               </TabsList>
             </Tabs>
-            <Button variant="ghost" className="text-secondary-text">
+            <Button variant="ghost" className="text-muted-foreground">
               <Calendar className="w-4 h-4 mr-2" />
               last 6 months
               <ChevronDown className="w-4 h-4 ml-2" />
@@ -66,9 +68,9 @@ const LeadsTrackingSection: React.FC = () => {
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={leadsTrackingData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" vertical={false} />
-              <XAxis dataKey="month" tickLine={false} axisLine={false} tick={{ fill: '#6B7280', fontSize: 12 }} />
-              <YAxis tickLine={false} axisLine={false} tick={{ fill: '#6B7280', fontSize: 12 }} />
-              <Tooltip content={<CustomTooltip />} />
+              <XAxis dataKey="month" tickLine={false} axisLine={false} tick={{ className: 'text-xs text-muted-foreground' }} />
+              <YAxis tickLine={false} axisLine={false} tick={{ className: 'text-xs text-muted-foreground' }} />
+              <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--accent))', opacity: 0.5 }}/>
               <defs>
                 <linearGradient id="colorWon" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#0F766E" stopOpacity={0.2}/>
@@ -84,7 +86,7 @@ const LeadsTrackingSection: React.FC = () => {
             </AreaChart>
           </ResponsiveContainer>
         </div>
-        <div className="flex justify-center items-center gap-6 mt-4 text-sm text-secondary-text">
+        <div className="flex justify-center items-center gap-6 mt-4 text-sm text-muted-foreground">
           <div className="flex items-center">
             <span className="w-3 h-3 rounded-sm bg-teal-700 mr-2"></span>
             <span>Closed won</span>
@@ -100,3 +102,4 @@ const LeadsTrackingSection: React.FC = () => {
 };
 
 export default LeadsTrackingSection;
+```
