@@ -1,14 +1,51 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '../components/layout/MainAppLayout';
+import FunnelCountSection from '../components/Dashboard/FunnelCountSection';
+import LeadsTrackingSection from '../components/Dashboard/LeadsTrackingSection';
+import ReasonsAndOtherData from '../components/Dashboard/ReasonsAndOtherData';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-const Index = () => {
+/**
+ * The main dashboard overview page.
+ * This page assembles all the primary dashboard components (organisms) into a cohesive view,
+ * structured within the MainAppLayout.
+ * It includes top-level navigation (Sales/Leads tabs) and arranges the data visualization sections.
+ */
+const IndexPage: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <MainAppLayout>
+      <Tabs defaultValue="leads" className="w-full">
+        <TabsList className="bg-transparent p-0 border-b rounded-none w-full justify-start">
+          <TabsTrigger
+            value="sales"
+            className="pb-3 px-4 text-sm font-medium text-secondary-text rounded-none data-[state=active]:text-primary-text data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary"
+          >
+            Sales
+          </TabsTrigger>
+          <TabsTrigger
+            value="leads"
+            className="pb-3 px-4 text-sm font-medium text-secondary-text rounded-none data-[state=active]:text-primary-text data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary"
+          >
+            Leads
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="sales" className="mt-6">
+          <div className="flex items-center justify-center h-96 border rounded-lg bg-card">
+            <p className="text-secondary-text">Sales data and visualizations would be displayed here.</p>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="leads" className="mt-6">
+          <div className="space-y-6">
+            <FunnelCountSection />
+            <LeadsTrackingSection />
+            <ReasonsAndOtherData />
+          </div>
+        </TabsContent>
+      </Tabs>
+    </MainAppLayout>
   );
 };
 
-export default Index;
+export default IndexPage;
