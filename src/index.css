@@ -1,3 +1,4 @@
+```css
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -39,6 +40,30 @@
 
     --radius: 0.375rem;
   }
+
+  .dark {
+    --background: 215 28% 17%;
+    --foreground: 220 13% 91%;
+    --card: 215 28% 17%;
+    --card-foreground: 220 13% 91%;
+    --popover: 215 28% 11%;
+    --popover-foreground: 220 13% 91%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 220 13% 25%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 13% 25%;
+    --muted-foreground: 215 14% 67%;
+    --accent: 220 13% 25%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 160 84% 39%;
+    --success-foreground: 210 40% 98%;
+    --border: 220 13% 25%;
+    --input: 220 13% 25%;
+    --ring: 217 91% 60%;
+  }
 }
 
 @layer base {
@@ -51,3 +76,4 @@
     font-family: 'Inter', system-ui, sans-serif;
   }
 }
+```
