@@ -1,3 +1,4 @@
+```typescript
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -49,7 +50,7 @@ const FunnelCountSection: React.FC = () => {
         <CardContent>
           <div className="mb-6">
             <span className="text-5xl font-bold">600</span>
-            <span className="ml-2 text-secondary-text">active leads</span>
+            <span className="ml-2 text-muted-foreground">active leads</span>
           </div>
           <div className="w-full h-3 rounded-full flex overflow-hidden mb-6">
             {funnelData.map((stage) => (
@@ -58,16 +59,16 @@ const FunnelCountSection: React.FC = () => {
           </div>
           <div className="space-y-4 text-sm">
             {funnelData.map((stage) => (
-              <div key={stage.name} className="grid grid-cols-4 items-center text-secondary-text">
-                <div className="flex items-center col-span-2">
+              <div key={stage.name} className="grid grid-cols-4 items-center text-muted-foreground">
+                <div className="flex items-center col-span-2 text-foreground">
                   <span className={`w-3 h-3 rounded-sm mr-3 ${stage.color}`}></span>
                   <span>{stage.name}</span>
                 </div>
-                <span>{stage.count}</span>
+                <span className="text-foreground">{stage.count}</span>
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <span className="text-right cursor-pointer">{stage.name === 'In conversation' ? stage.duration : `$ ${stage.value}`}</span>
+                      <span className="text-right cursor-pointer text-foreground">{stage.name === 'In conversation' ? stage.duration : `$ ${stage.value}`}</span>
                     </TooltipTrigger>
                     {stage.name === 'In conversation' && <TooltipContent><p>{`$ ${stage.value}`}</p></TooltipContent>}
                   </Tooltip>
@@ -90,27 +91,26 @@ const FunnelCountSection: React.FC = () => {
                 <Pie data={sourcesData} dataKey="percentage" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#8884d8" paddingAngle={1}>
                   {sourcesData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
+                  ))}</Pie>
               </PieChart>
             </ResponsiveContainer>
           </div>
            <div className="space-y-3 text-sm">
             {sourcesData.map((source) => (
-              <div key={source.name} className="grid grid-cols-3 items-center text-secondary-text">
-                <div className="flex items-center">
+              <div key={source.name} className="grid grid-cols-3 items-center text-muted-foreground">
+                <div className="flex items-center text-foreground">
                   <span className="w-3 h-3 rounded-sm mr-3" style={{backgroundColor: source.color}}></span>
                   <span>{source.name}</span>
                 </div>
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <span className="text-right cursor-pointer">$ {source.value.toLocaleString()}</span>
+                            <span className="text-right cursor-pointer text-foreground">$ {source.value.toLocaleString()}</span>
                         </TooltipTrigger>
                         <TooltipContent><p>from leads total</p></TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
-                <span className="text-right">{source.percentage}%</span>
+                <span className="text-right text-foreground">{source.percentage}%</span>
               </div>
             ))}
           </div>
@@ -121,3 +121,4 @@ const FunnelCountSection: React.FC = () => {
 };
 
 export default FunnelCountSection;
+```
