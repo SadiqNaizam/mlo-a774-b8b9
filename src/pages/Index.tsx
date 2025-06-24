@@ -1,3 +1,4 @@
+```typescript
 import React from 'react';
 import MainAppLayout from '../components/layout/MainAppLayout';
 import FunnelCountSection from '../components/Dashboard/FunnelCountSection';
@@ -18,13 +19,13 @@ const IndexPage: React.FC = () => {
         <TabsList className="bg-transparent p-0 border-b rounded-none w-full justify-start">
           <TabsTrigger
             value="sales"
-            className="pb-3 px-4 text-sm font-medium text-secondary-text rounded-none data-[state=active]:text-primary-text data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary"
+            className="pb-3 px-4 text-sm font-medium text-muted-foreground rounded-none data-[state=active]:text-foreground data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary"
           >
             Sales
           </TabsTrigger>
           <TabsTrigger
             value="leads"
-            className="pb-3 px-4 text-sm font-medium text-secondary-text rounded-none data-[state=active]:text-primary-text data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary"
+            className="pb-3 px-4 text-sm font-medium text-muted-foreground rounded-none data-[state=active]:text-foreground data-[state=active]:shadow-none data-[state=active]:border-b-2 data-[state=active]:border-primary"
           >
             Leads
           </TabsTrigger>
@@ -32,7 +33,7 @@ const IndexPage: React.FC = () => {
 
         <TabsContent value="sales" className="mt-6">
           <div className="flex items-center justify-center h-96 border rounded-lg bg-card">
-            <p className="text-secondary-text">Sales data and visualizations would be displayed here.</p>
+            <p className="text-muted-foreground">Sales data and visualizations would be displayed here.</p>
           </div>
         </TabsContent>
 
@@ -49,3 +50,4 @@ const IndexPage: React.FC = () => {
 };
 
 export default IndexPage;
+```
